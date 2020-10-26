@@ -1,15 +1,8 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-const utf8 = require('utf8');
 var base64js = require('base64-js');
-
 const Buffer = require('buffer').Buffer;
-const RNSimpleCrypto = require('@react-native-cryptocurrencies/react-native-simple-crypto')
-  .default;
-const pbkdf2_1 = require('@react-native-cryptocurrencies/react-native-pbkdf2')
-  .default;
-const sha = RNSimpleCrypto.SHA;
-
+const RNSimpleCrypto = require('react-native-simple-crypto').default;
 const randomBytes = require('react-native-securerandom').generateSecureRandom;
 const _wordlists_1 = require('./_wordlists');
 
@@ -20,25 +13,6 @@ const INVALID_CHECKSUM = 'Invalid mnemonic checksum';
 const WORDLIST_REQUIRED =
   'A wordlist is required but a default could not be found.\n' +
   'Please explicitly pass a 2048 word array explicitly.';
-
-function pbkdf2Promise(password, saltMixin, iterations, keylen, digest) {
-  /*
-  console.log('[BIP39] run PBKDF2 with: ', {
-    password,
-    password_str: password.toString(),
-    password_hex: password.toString('hex'),
-    saltMixin,
-    salt_str: saltMixin.toString(),
-    salt_hex: saltMixin.toString('hex'),
-    iterations,
-  });
-  */
-  return pbkdf2_1.derivationKey(
-    password.toString(),
-    saltMixin.toString(),
-    iterations,
-  );
-}
 
 function normalize(str) {
   return (str || '').normalize('NFKD');

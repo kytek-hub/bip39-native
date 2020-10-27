@@ -2,7 +2,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 var base64js = require('base64-js');
 const Buffer = require('buffer').Buffer;
-const RNSimpleCrypto = require('react-native-simple-crypto').default;
+const RNSimpleCrypto = require('@react-native-cryptocurrencies/react-native-simple-crypto').default;
 const randomBytes = require('react-native-securerandom').generateSecureRandom;
 const _wordlists_1 = require('./_wordlists');
 
